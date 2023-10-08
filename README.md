@@ -66,7 +66,7 @@ where A is the adjacency matrix, k is the degree of nodes, and m is the total nu
 
 The frequencies for sound generation are mapped from the eigenvalues of the chosen matrix:
 
-$$ \text{norm\_eigenvalue} = \text{np.interp}(\lambda, (\lambda_{\text{min}}, \lambda_{\text{max}}), (\text {min\_freq}, \text{max\_freq}))$$
+$$\lambda = \text{np.interp}(\lambda, (\lambda_{\text{min}}, \lambda_{\text{max}}), (\text {min\_freq}, \text{max\_freq}))$$
 
 ### Audio Types
 
