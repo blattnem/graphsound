@@ -41,30 +41,30 @@ The code is a Streamlit application that generates sound and visuals based on a 
 
 ### Adjacency Matrix Spectrum
 
-The adjacency matrix $$A$$ is a square matrix where $$ A_{ij} $$ is 1 if there is an edge between nodes $$ i $$ and $$ j $$, and 0 otherwise.
+The adjacency matrix A is a square matrix where $$A_{ij}$$ is 1 if there is an edge between nodes i and j, and 0 otherwise.
 
 ### Laplacian Spectrum
 
-The normalized Laplacian matrix $$L $$ is calculated as:
+The normalized Laplacian matrix L is calculated as:
 
 $$
 L = D^{-\frac{1}{2}} A D^{-\frac{1}{2}}
 $$
 
-where $$ D $$ is the diagonal matrix of node degrees and $$ A $$ is the adjacency matrix.
+where D is the diagonal matrix of node degrees and A is the adjacency matrix.
 
 ### Modularity Spectrum
 
-The modularity matrix $$ B $$ is calculated as:
+The modularity matrix B is calculated as:
 
 
 $$B = A - \frac{k_i k_j}{2m}$$
 
-where $$ A $$ is the adjacency matrix, $$k$$ is the degree of nodes, and $$m$$ is the total number of edges.
+where A is the adjacency matrix, k is the degree of nodes, and m is the total number of edges.
 
 ### Sound Frequency
 
-The frequencies for sound generation are mapped from the eigenvalues ($$\( \lambda \)$$) of the chosen matrix:
+The frequencies for sound generation are mapped from the eigenvalues ($$\lambda$$) of the chosen matrix:
 
 $$
 \text{norm\_eigenvalue} = \text{np.interp}(\lambda, (\lambda_{\text{min}}, \lambda_{\text{max}}), (\text{min\_freq}, \text{max\_freq}))
