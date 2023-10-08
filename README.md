@@ -62,15 +62,11 @@ $$B = A - \frac{k_i k_j}{2m}$$
 
 where A is the adjacency matrix, k is the degree of nodes, and m is the total number of edges.
 
-### Sound Frequency
 
-The frequencies for sound generation are mapped from the eigenvalues of the chosen matrix:
-
-$$\lambda = \text{np.interp}(\lambda, (\lambda_{\text{min}}, \lambda_{\text{max}}), (\text {min\_freq}, \text{max\_freq}))$$
 
 ### Audio Types
 
-- **Sine Wave**: $$ \sin((\text{norm\_eigenvalue} + \text{modulating\_frequency} \cdot \sin(2\pi \text{modulating\_frequency} \cdot t)) \cdot 2\pi t)$$
+- **Sine Wave**: sin((norm_eigenvalue+modulating_frequency×sin(2π×modulating_frequency×t))×2π×t)
 - **Square Wave**: $$\text{sign}(\sin(2\pi \text{norm\_eigenvalue} \cdot t))$$
 - **Sawtooth Wave**: $$0.5 \times (1 - \frac{\arctan(\sin(2\pi \text{norm\_eigenvalue} \cdot t))}{\pi}) $$
 - **FM Synthesis**: $$ \sin(2\pi \text{carrier\_freq} \cdot t + \sin(2\pi \text{modulating\_freq} \cdot t))$$
@@ -85,3 +81,6 @@ $$\lambda = \text{np.interp}(\lambda, (\lambda_{\text{min}}, \lambda_{\text{max}
 3. Click "Generate Sound and Visuals" to see the plots and hear the sound.
 
 For more details on each section, refer to the comments within the code.
+
+
+sin((norm_eigenvalue+modulating_frequency×sin(2π×modulating_frequency×t))×2π×t)
