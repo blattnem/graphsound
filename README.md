@@ -47,9 +47,9 @@ The adjacency matrix \( A \) is a square matrix where \( A_{ij} \) is 1 if there
 
 The normalized Laplacian matrix \( L \) is calculated as:
 
-\[
+$$\[
 L = D^{-\frac{1}{2}} A D^{-\frac{1}{2}}
-\]
+\]$$
 
 where \( D \) is the diagonal matrix of node degrees and \( A \) is the adjacency matrix.
 
@@ -57,27 +57,27 @@ where \( D \) is the diagonal matrix of node degrees and \( A \) is the adjacenc
 
 The modularity matrix \( B \) is calculated as:
 
-\[
+$$\[
 B = A - \frac{k_i k_j}{2m}
-\]
+\]$$
 
-where \( A \) is the adjacency matrix, \( k \) is the degree of nodes, and \( m \) is the total number of edges.
+where $$\( A \)$$ is the adjacency matrix, $$\( k \)$$ is the degree of nodes, and $$\( m \)$$ is the total number of edges.
 
 ### Sound Frequency
 
-The frequencies for sound generation are mapped from the eigenvalues (\( \lambda \)) of the chosen matrix:
+The frequencies for sound generation are mapped from the eigenvalues ($$\( \lambda \)$$) of the chosen matrix:
 
-\[
+$$\[
 \text{norm\_eigenvalue} = \text{np.interp}(\lambda, (\lambda_{\text{min}}, \lambda_{\text{max}}), (\text{min\_freq}, \text{max\_freq}))
-\]
+\]$$
 
 ### Audio Types
 
-- **Sine Wave**: \( \sin((\text{norm\_eigenvalue} + \text{modulating\_frequency} \cdot \sin(2\pi \text{modulating\_frequency} \cdot t)) \cdot 2\pi t) \)
-- **Square Wave**: \( \text{sign}(\sin(2\pi \text{norm\_eigenvalue} \cdot t)) \)
-- **Sawtooth Wave**: \( 0.5 \times (1 - \frac{\arctan(\sin(2\pi \text{norm\_eigenvalue} \cdot t))}{\pi}) \)
-- **FM Synthesis**: \( \sin(2\pi \text{carrier\_freq} \cdot t + \sin(2\pi \text{modulating\_freq} \cdot t)) \)
-- **Waveshaping Synthesis**: \( \text{sign}(audio) \times (1 - e^{-|audio|}) \)
+- **Sine Wave**: $$\( \sin((\text{norm\_eigenvalue} + \text{modulating\_frequency} \cdot \sin(2\pi \text{modulating\_frequency} \cdot t)) \cdot 2\pi t) \)$$
+- **Square Wave**: $$\( \text{sign}(\sin(2\pi \text{norm\_eigenvalue} \cdot t)) \)$$
+- **Sawtooth Wave**: $$\( 0.5 \times (1 - \frac{\arctan(\sin(2\pi \text{norm\_eigenvalue} \cdot t))}{\pi}) \)$$
+- **FM Synthesis**: $$\( \sin(2\pi \text{carrier\_freq} \cdot t + \sin(2\pi \text{modulating\_freq} \cdot t)) \)$$
+- **Waveshaping Synthesis**: $$\( \text{sign}(audio) \times (1 - e^{-|audio|}) \)$$
 
 ---
 
