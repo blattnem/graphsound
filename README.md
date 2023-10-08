@@ -47,9 +47,9 @@ The adjacency matrix \( A \) is a square matrix where \( A_{ij} \) is 1 if there
 
 The normalized Laplacian matrix \( L \) is calculated as:
 
-$$\[
+$$
 L = D^{-\frac{1}{2}} A D^{-\frac{1}{2}}
-\]$$
+\$$
 
 where \( D \) is the diagonal matrix of node degrees and \( A \) is the adjacency matrix.
 
