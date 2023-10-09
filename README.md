@@ -66,4 +66,4 @@ streamlit run netsound.py
 2. Configure graph topology, node count, and other parameters through the sidebar.
 3. Click "Generate Sound and Visuals" to produce audio and visuals.
 
-For more detailed information on each section, consult the readme.pdf
+For more detailed information on each section, consult the soundgraph.pdf
