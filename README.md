@@ -4,7 +4,7 @@ I apologize for the oversight. Here's the revised README with LaTeX equations pr
 
 ## Overview
 
-The Graph Eigenvalue Sound Generator is a specialized Streamlit application that combines graph theory with sound synthesis. Users select graph topologies, triggering the computation of adjacency matrices and eigenvalues, which are then used to generate both sound and visualizations. This interdisciplinary project encompasses graph theory, audio synthesis methodologies, and spectral representations to offer a multi-sensory experience.
+The Graph Eigenvalue Sound Generator is a small Streamlit application that combines graph theory with sound synthesis. 
 
 ## Requirements
 
@@ -52,15 +52,13 @@ pip install streamlit numpy networkx sounddevice matplotlib scipy
 
 ### Calculating Eigenvalues
 
-Eigenvalues $\lambda$ for the adjacency matrix $A$ are computed by solving the characteristic equation:
-
-$$ \text{det}(A - \lambda I) = 0 $$
+Eigenvalues $\lambda$ for the adjacency matrix $A$ are computed by solving the characteristic equation: $\text{det}(A - \lambda I) = 0$
 
 ### Eigenvalues in Sound Generation
 
 Eigenvalues are normalized and mapped to frequencies to generate unique audio textures. These are used in methods like FM Synthesis and Waveshaping Synthesis to modulate carrier frequencies.
 
-### Adjacency Matrix Spectrum
+#### Adjacency matrix
 
 The adjacency matrix $A$ is an $n \times n$ square matrix where:
 
@@ -69,37 +67,22 @@ $$ A_{ij} = \begin{cases}
 0 & \text{otherwise}
 \end{cases} $$
 
-### Additional Spectra
+#### Normalized laplacian matrix
 
-- **Laplacian Spectrum**: 
+$$L = D^{-\frac{1}{2}} A D^{-\frac{1}{2}}$$
 
-$$ L = D^{-\frac{1}{2}} A D^{-\frac{1}{2}} $$
-
-- **Modularity Spectrum**: 
-
-$$ B = A - \frac{k_i k_j}{2m} $$
+#### Modularity matrix
+$$B = A - \frac{k_i k_j}{2m}$$
 
 ### Audio Types
 
-- **Sine Wave**: 
+- Sine Wave
+- Square Wave
+- Sawtooth Wave
+- FM Synthesis
+- Waveshaping Synthesi
 
-$$ \sin\left((\text{norm\_eigenvalue} + \text{modulating\_frequency} \cdot \sin(2\pi \cdot \text{modulating\_frequency} \cdot t)) \cdot 2\pi \cdot t\right) $$
 
-- **Square Wave**: 
-
-$$ \text{sign}(\sin(2\pi \cdot \text{norm\_eigenvalue} \cdot t)) $$
-
-- **Sawtooth Wave**: 
-
-$$ 0.5 \cdot \left(1 - \frac{\arctan(\sin(2\pi \cdot \text{norm\_eigenvalue} \cdot t))}{\pi}\right) $$
-
-- **FM Synthesis**: 
-
-$$ \sin(2\pi \cdot \text{carrier\_freq} \cdot t + \sin(2\pi \cdot \text{modulating\_freq} \cdot t)) $$
-
-- **Waveshaping Synthesis**: 
-
-$$ \text{sign}(\text{audio}) \cdot (1 - e^{-|\text{audio}|}) $$
 
 ## Usage
 

@@ -121,7 +121,6 @@ def generate_sound_and_visuals(G,audio_type,modulation_index,spectrum_type,pitch
     
         
         audio *= 0.5 / np.max(np.abs(audio))
-        print(audio)
         sd.play(audio, samplerate=fs)
         sd.wait()
     
@@ -139,7 +138,11 @@ st.set_page_config(layout="wide")
 st.title("Graph Eigenvalue Sound Generator")
 
 # Sliders moved to sidebar
-graph_choice = st.sidebar.selectbox("Choose a Graph Topology", ("Complete Graph", "Cycle Graph", "Random Graph", "Star Graph", "Wheel Graph", "Lollipop Graph", "Barabási–Albert Graph"))
+graph_choice = st.sidebar.selectbox("Choose a Graph Topology", ("Complete Graph", "Cycle Graph", "Random Graph", "Star Graph", "Wheel Graph", "Lollipop Graph",
+                                                                 "Barabási–Albert Graph",
+                                                                 "Ladder Graph", "Circular Ladder Graph", "Path Graph", "Binominal Tree",
+                                                                 "Karate Club Graph", "Florentine Family Graph", "Les miserables Graph"
+                                                                 ))
 n_nodes = st.sidebar.slider("Number of Nodes", min_value=3, max_value=50, value=12)
 spectrum_type = st.sidebar.selectbox("Choose a Spectrum Type", ("Adjacency Matrix", "Laplacian", "Modularity")) 
 pitchtime = st.sidebar.slider("Pitch Time", min_value=0.03, max_value=1., value=0.03,step=0.01)  
@@ -163,6 +166,20 @@ elif graph_choice == "Lollipop Graph":
 elif graph_choice == "Barabási–Albert Graph":
     m = st.sidebar.slider("Number of edges to attach from new node to existing nodes", min_value=1, max_value=n_nodes-1, value=2)
     G = nx.barabasi_albert_graph(n_nodes, m)
+elif graph_choice == "Ladder Graph":
+    G = nx.ladder_graph(n_nodes)
+elif graph_choice == "Circular Ladder Graph":
+    G = nx.circular_ladder_graph(n_nodes)
+elif graph_choice == "Path Graph":
+    G = nx.path_graph(n_nodes)
+elif graph_choice == "Binominal Tree":
+    G = nx.binomial_tree(n_nodes)
+elif graph_choice == "Karate Club Graph":
+    G = nx.karate_club_graph()
+elif graph_choice == "Florentine Family Graph":
+    G = nx.florentine_families_graph()
+elif graph_choice == "Les miserables Graph":
+    G = nx.les_miserables_graph()
 
 if st.button("Generate Sound and Visuals"):
     generate_sound_and_visuals(G,audio_type,modulation_index,spectrum_type,pitchtime)
