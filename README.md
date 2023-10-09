@@ -67,19 +67,30 @@ where A is the adjacency matrix, k is the degree of nodes, and m is the total nu
 ### Audio Types
 
 - **Sine Wave**: 
-$$\sin\left((\text{norm\_eigenvalue} + \text{modulating\_frequency} \cdot \sin(2\pi \cdot \text{modulating\_frequency} \cdot t)) \cdot 2\pi \cdot t\right)$$
+$$
+\sin\left((\mathrm{norm\_eigenvalue} + \mathrm{modulating\_frequency} \cdot \sin(2\pi \cdot \mathrm{modulating\_frequency} \cdot t)) \cdot 2\pi \cdot t\right)
+$$
 
 - **Square Wave**:
-$$\text{sign}(\sin(2\pi \cdot \text{norm\_eigenvalue} \cdot t))$$
+$$
+\mathrm{sign}(\sin(2\pi \cdot \mathrm{norm\_eigenvalue} \cdot t))
+$$
 
 - **Sawtooth Wave**:
-$$0.5 \cdot \left(1 - \frac{\arctan(\sin(2\pi \cdot \text{norm\_eigenvalue} \cdot t))}{\pi}\right)$$
+$$
+0.5 \cdot \left(1 - \frac{\arctan(\sin(2\pi \cdot \mathrm{norm\_eigenvalue} \cdot t))}{\pi}\right)
+$$
 
 - **FM Synthesis**:
-$$\sin(2\pi \cdot \text{carrier\_freq} \cdot t + \sin(2\pi \cdot \text{modulating\_freq} \cdot t))$$
+$$
+\sin(2\pi \cdot \mathrm{carrier\_freq} \cdot t + \sin(2\pi \cdot \mathrm{modulating\_freq} \cdot t))
+$$
 
 - **Waveshaping Synthesis**:
-$$\text{sign}(\text{audio}) \cdot (1 - e^{-|\text{audio}|})$$
+$$
+\mathrm{sign}(\mathrm{audio}) \cdot (1 - e^{-|\mathrm{audio}|})
+$$
+
 
 
 
