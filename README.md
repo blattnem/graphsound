@@ -15,7 +15,7 @@ The code is a Streamlit application that generates sound and visuals based on a 
 
 ## Functions
 
-### `generate_sound_and_visuals(G, audio_type, modulation_index, spectrum_type, pitchtime)`
+#### `generate_sound_and_visuals(G, audio_type, modulation_index, spectrum_type, pitchtime)`
 
 #### Parameters:
 
@@ -67,29 +67,19 @@ where A is the adjacency matrix, k is the degree of nodes, and m is the total nu
 ### Audio Types
 
 - **Sine Wave**: 
-$$
-\sin\left((\text{norm\_eigenvalue} + \text{modulating\_frequency} \cdot \sin(2\pi \cdot \text{modulating\_frequency} \cdot t)) \cdot 2\pi \cdot t\right)
-$$
+$$\sin\left((\text{norm\_eigenvalue} + \text{modulating\_frequency} \cdot \sin(2\pi \cdot \text{modulating\_frequency} \cdot t)) \cdot 2\pi \cdot t\right)$$
 
 - **Square Wave**:
-$$
-\text{sign}(\sin(2\pi \cdot \text{norm\_eigenvalue} \cdot t))
-$$
+$$\text{sign}(\sin(2\pi \cdot \text{norm\_eigenvalue} \cdot t))$$
 
 - **Sawtooth Wave**:
-$$
-0.5 \cdot \left(1 - \frac{\arctan(\sin(2\pi \cdot \text{norm\_eigenvalue} \cdot t))}{\pi}\right)
-$$
+$$0.5 \cdot \left(1 - \frac{\arctan(\sin(2\pi \cdot \text{norm\_eigenvalue} \cdot t))}{\pi}\right)$$
 
 - **FM Synthesis**:
-$$
-\sin(2\pi \cdot \text{carrier\_freq} \cdot t + \sin(2\pi \cdot \text{modulating\_freq} \cdot t))
-$$
+$$\sin(2\pi \cdot \text{carrier\_freq} \cdot t + \sin(2\pi \cdot \text{modulating\_freq} \cdot t))$$
 
 - **Waveshaping Synthesis**:
-$$
-\text{sign}(\text{audio}) \cdot (1 - e^{-|\text{audio}|})
-$$
+$$\text{sign}(\text{audio}) \cdot (1 - e^{-|\text{audio}|})$$
 
 
 
