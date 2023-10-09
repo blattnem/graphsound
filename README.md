@@ -52,7 +52,7 @@ pip install streamlit numpy networkx sounddevice matplotlib scipy
 
 ### Calculating Eigenvalues
 
-Eigenvalues $ \lambda $ for the adjacency matrix $$ A $$ are computed by solving the characteristic equation:
+Eigenvalues $\lambda$ for the adjacency matrix $A$ are computed by solving the characteristic equation:
 
 $$ \text{det}(A - \lambda I) = 0 $$
 
@@ -62,7 +62,7 @@ Eigenvalues are normalized and mapped to frequencies to generate unique audio te
 
 ### Adjacency Matrix Spectrum
 
-The adjacency matrix $$ A $$ is an $$ n \times n $$ square matrix where:
+The adjacency matrix $A$ is an $n \times n$ square matrix where:
 
 $$ A_{ij} = \begin{cases} 
 1 & \text{if there is an edge between nodes \( i \) and \( j \)} \\
