@@ -1,5 +1,3 @@
-I apologize for the oversight. Here's the revised README with LaTeX equations properly wrapped in `$$`.
-
 # Graph Eigenvalue Sound Generator
 
 ## Overview
@@ -91,7 +89,3 @@ $$B = A - \frac{k_i k_j}{2m}$$
 3. Click "Generate Sound and Visuals" to produce audio and visuals.
 
 For more detailed information on each section, consult the inline code comments.
-
----
-
-For contributions or reporting issues, please visit the project's GitHub repository.
