@@ -1,8 +1,10 @@
+I apologize for the oversight. Here's the revised README with LaTeX equations properly wrapped in `$$`.
+
 # Graph Eigenvalue Sound Generator
 
 ## Overview
 
-The code is a Streamlit application that generates sound and visuals based on a selected graph topology. It computes the adjacency matrix and eigenvalues of the graph and then uses these to produce sound and visual outputs. The application offers various options for graph types, audio types, and spectral representations.
+The Graph Eigenvalue Sound Generator is a specialized Streamlit application that combines graph theory with sound synthesis. Users select graph topologies, triggering the computation of adjacency matrices and eigenvalues, which are then used to generate both sound and visualizations. This interdisciplinary project encompasses graph theory, audio synthesis methodologies, and spectral representations to offer a multi-sensory experience.
 
 ## Requirements
 
@@ -13,85 +15,100 @@ The code is a Streamlit application that generates sound and visuals based on a 
 - Matplotlib
 - SciPy
 
+## Installation
+
+To install the required libraries, run:
+
+```bash
+pip install streamlit numpy networkx sounddevice matplotlib scipy
+```
+
 ## Functions
 
-#### `generate_sound_and_visuals(G, audio_type, modulation_index, spectrum_type, pitchtime)`
+### `generate_sound_and_visuals(G, audio_type, modulation_index, spectrum_type, pitchtime)`
 
-#### Parameters:
+#### Parameters
 
-- `G`: A NetworkX graph object.
-- `audio_type`: A string indicating the type of audio to be generated ('Sine Wave', 'Square Wave', etc.).
-- `modulation_index`: A float specifying the modulation index for the sound.
-- `spectrum_type`: A string specifying the type of spectral representation ('Adjacency Matrix', 'Laplacian', 'Modularity').
+- `G`: NetworkX graph object.
+- `audio_type`: String indicating the audio type ('Sine Wave', 'Square Wave', etc.).
+- `modulation_index`: Float for the modulation index.
+- `spectrum_type`: String for the type of spectral representation ('Adjacency Matrix', 'Laplacian', 'Modularity').
 - `pitchtime`: Duration of each pitch in seconds.
 
-#### Returns:
-- None. Side effects include generating sound and displaying plots.
+#### Returns
 
-#### Raises:
-- `ValueError`: If `audio_type` is not supported.
-- `LinAlgError`: If eigenvalue computation fails.
+- None; generates sound and plots as side effects.
 
-#### Notes:
-- Utilizes NetworkX for graph analysis, sounddevice for sound generation, Matplotlib for plotting, and Streamlit for UI layout.
+#### Raises
 
----
+- `ValueError`: Unsupported `audio_type`.
+- `LinAlgError`: Eigenvalue computation fails.
 
-## Mathematical Formulas
+#### Notes
+
+- Uses NetworkX for graph analysis, sounddevice for audio generation, Matplotlib for plotting, and Streamlit for the UI.
+
+## Mathematical Concepts
+
+### Calculating Eigenvalues
+
+Eigenvalues $ \lambda $ for the adjacency matrix $$ A $$ are computed by solving the characteristic equation:
+
+$$ \text{det}(A - \lambda I) = 0 $$
+
+### Eigenvalues in Sound Generation
+
+Eigenvalues are normalized and mapped to frequencies to generate unique audio textures. These are used in methods like FM Synthesis and Waveshaping Synthesis to modulate carrier frequencies.
 
 ### Adjacency Matrix Spectrum
 
-The adjacency matrix A is a square matrix where $$A_{ij}$$ is 1 if there is an edge between nodes i and j, and 0 otherwise.
+The adjacency matrix $$ A $$ is an $$ n \times n $$ square matrix where:
 
-### Laplacian Spectrum
+$$ A_{ij} = \begin{cases} 
+1 & \text{if there is an edge between nodes \( i \) and \( j \)} \\
+0 & \text{otherwise}
+\end{cases} $$
 
-The normalized Laplacian matrix L is calculated as:
+### Additional Spectra
 
-$$
-L = D^{-\frac{1}{2}} A D^{-\frac{1}{2}}
-$$
+- **Laplacian Spectrum**: 
 
-where D is the diagonal matrix of node degrees and A is the adjacency matrix.
+$$ L = D^{-\frac{1}{2}} A D^{-\frac{1}{2}} $$
 
-### Modularity Spectrum
+- **Modularity Spectrum**: 
 
-The modularity matrix B is calculated as:
-
-
-$$B = A - \frac{k_i k_j}{2m}$$
-
-where A is the adjacency matrix, k is the degree of nodes, and m is the total number of edges.
-
-
+$$ B = A - \frac{k_i k_j}{2m} $$
 
 ### Audio Types
 
 - **Sine Wave**: 
-$$\sin\left((\mathrm{norm\_eigenvalue} + \mathrm{modulating\_frequency} \cdot \sin(2\pi \cdot \mathrm{modulating\_frequency} \cdot t)) \cdot 2\pi \cdot t\right)$$
 
-- **Square Wave**:
-$$\mathrm{sign}(\sin(2\pi \cdot \mathrm{norm\_eigenvalue} \cdot t))$$
+$$ \sin\left((\text{norm\_eigenvalue} + \text{modulating\_frequency} \cdot \sin(2\pi \cdot \text{modulating\_frequency} \cdot t)) \cdot 2\pi \cdot t\right) $$
 
-- **Sawtooth Wave**:
-$$0.5 \cdot \left(1 - \frac{\arctan(\sin(2\pi \cdot \mathrm{norm\_eigenvalue} \cdot t))}{\pi}\right)$$
+- **Square Wave**: 
 
-- **FM Synthesis**:
-$$\sin(2\pi \cdot \mathrm{carrier\_freq} \cdot t + \sin(2\pi \cdot \mathrm{modulating\_freq} \cdot t))$$
+$$ \text{sign}(\sin(2\pi \cdot \text{norm\_eigenvalue} \cdot t)) $$
 
-- **Waveshaping Synthesis**:
-$$\mathrm{sign}(\mathrm{audio}) \cdot (1 - e^{-|\mathrm{audio}|})$$
+- **Sawtooth Wave**: 
 
+$$ 0.5 \cdot \left(1 - \frac{\arctan(\sin(2\pi \cdot \text{norm\_eigenvalue} \cdot t))}{\pi}\right) $$
 
+- **FM Synthesis**: 
 
+$$ \sin(2\pi \cdot \text{carrier\_freq} \cdot t + \sin(2\pi \cdot \text{modulating\_freq} \cdot t)) $$
 
+- **Waveshaping Synthesis**: 
 
----
+$$ \text{sign}(\text{audio}) \cdot (1 - e^{-|\text{audio}|}) $$
 
 ## Usage
 
-1. Run the Streamlit application.
-2. Choose the graph topology, number of nodes, and other parameters from the sidebar.
-3. Click "Generate Sound and Visuals" to see the plots and hear the sound.
+1. Launch the Streamlit application.
+2. Configure graph topology, node count, and other parameters through the sidebar.
+3. Click "Generate Sound and Visuals" to produce audio and visuals.
 
-For more details on each section, refer to the comments within the code.
+For more detailed information on each section, consult the inline code comments.
 
+---
+
+For contributions or reporting issues, please visit the project's GitHub repository.
